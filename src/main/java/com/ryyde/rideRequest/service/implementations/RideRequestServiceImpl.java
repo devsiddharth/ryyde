@@ -63,10 +63,12 @@ public class RideRequestServiceImpl implements RideRequestService {
     }
 
     @Override
-    public RideRequest updateRequestStatus(String id, RideRequestStatus status) {
-        RideRequest existingRequest = getRequestById(id);
-        existingRequest.setStatus(status);
-        return rideRequestRepository.save(existingRequest);
+    public RideRequest updateRequestStatus(String id, RideRequestStatus status){
+        RideRequest existingRideRequest = getRequestById(id);
+
+        existingRideRequest.setStatus(status);
+
+        return rideRequestRepository.save(existingRideRequest);
     }
 
     @Override

@@ -24,5 +24,5 @@ public class User {
 
     private Double rating;
 
-    private Instant createdAt;
+    private Instant createdAt = Instant.now();
 }

@@ -46,3 +46,5 @@ public class Ride {
 
     private Instant createdAt;
 }
+
+

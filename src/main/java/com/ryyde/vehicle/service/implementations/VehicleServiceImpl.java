@@ -54,8 +54,6 @@ public class VehicleServiceImpl implements VehicleService {
 
     @Override
     public List<Vehicle> getVehiclesByOwner(String ownerId) {
-        return vehicleRepository.findAll().stream()
-                .filter(vehicle -> ownerId.equals(vehicle.getOwnerId()))
-                .toList();
+        return vehicleRepository.findByOwnerId(ownerId);
     }
 }
