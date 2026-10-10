@@ -7,7 +7,7 @@ import java.util.List;
 
 public class RouteMatchingAlgorithm {
 
-    public RoutePoint findNearestRoutePoint(
+    public RouteMatchPoint findNearestRoutePoint(
             Location location,
             List<RoutePoint> route) {
 
@@ -32,13 +32,13 @@ public class RouteMatchingAlgorithm {
             }
         }
 
-        return nearestPoint;
+        return new RouteMatchPoint(nearestPoint, shortestDistance);
     }
 
     private double calculateDistanceKm(
             double lat1,
-            double lat2,
             double long1,
+            double lat2,
             double long2){
 
         // Distance method - Haversine calculation will go here
