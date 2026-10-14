@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/ride-requests/")
+@RequestMapping("/api/ride-requests")
 @RequiredArgsConstructor
 
 public class RideRequestController {
@@ -21,7 +21,7 @@ public class RideRequestController {
     @PostMapping
     public ResponseEntity<RideRequest> createRideRequest(@RequestBody RideRequest rideRequest){
         RideRequest createdRideRequest = rideRequestService.createRequest(rideRequest);
-        return ResponseEntity.status(HttpStatus.CREATED).body(rideRequest);
+        return ResponseEntity.status(HttpStatus.CREATED).body(createdRideRequest);
     }
 
     @GetMapping("/{id}")
@@ -41,7 +41,7 @@ public class RideRequestController {
 
     @GetMapping("/passenger/{passengerId}")
     public ResponseEntity<List<RideRequest>> getRequestsByPassengerId(@PathVariable String passengerId){
-        return ResponseEntity.ok(rideRequestService.getRequestsByRide(passengerId));
+        return ResponseEntity.ok(rideRequestService.getRequestsByPassenger(passengerId));
     }
 
     @GetMapping("/status/{status}")

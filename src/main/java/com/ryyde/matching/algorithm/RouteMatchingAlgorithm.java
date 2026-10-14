@@ -2,9 +2,12 @@ package com.ryyde.matching.algorithm;
 
 import com.ryyde.ride.model.Location;
 import com.ryyde.ride.model.RoutePoint;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+
+@Component
 public class RouteMatchingAlgorithm {
 
     public RouteMatchPoint findNearestRoutePoint(
