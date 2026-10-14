@@ -54,15 +54,20 @@ public class MatchingServiceImpl implements MatchingService {
 
             RouteMatchPoint dropMatch = algorithm.findNearestRoutePoint(dropLocation, ride.getRoute());
 
+            if (pickupMatch == null || dropMatch == null) {
+                continue;
+            }
+
+            if (pickupMatch.getRoutePoint() == null
+                    || dropMatch.getRoutePoint() == null) {
+                continue;
+            }
+
             RoutePoint pickupPoint = pickupMatch.getRoutePoint();
             RoutePoint dropPoint = dropMatch.getRoutePoint();
 
             double pickupDeviation = pickupMatch.getDeviationKm();
             double dropDeviation = dropMatch.getDeviationKm();
-
-            if (pickupMatch.getRoutePoint() == null || dropMatch.getRoutePoint() == null){
-                continue;
-            }
 
             if (pickupPoint.getDistanceFromStartKm() >= dropPoint.getDistanceFromStartKm()){
                 continue;

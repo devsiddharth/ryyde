@@ -289,7 +289,16 @@ public class MatchingServiceImplTest {
         ride2.setRoute(route2);
 
         Location pickupLocation = new Location();
+        pickupLocation.setType("Point");
+        pickupLocation.setCoordinates(
+                new double[]{78.5010, 17.4010}
+        );
+
         Location dropLocation = new Location();
+        dropLocation.setType("Point");
+        dropLocation.setCoordinates(
+                new double[]{78.5150, 17.4150}
+        );
 
         RouteMatchPoint pickupMatch1 =
                 new RouteMatchPoint(pickupPoint1, 1.8);
@@ -327,5 +336,7 @@ public class MatchingServiceImplTest {
         assertTrue(result.contains(ride1));
         assertTrue(result.contains(ride2));
     }
+
+
 
 }
